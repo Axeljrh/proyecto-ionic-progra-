@@ -91,6 +91,6 @@ export class Tab2Page {
     };
     this.mensajeToast = 'tarea guardad correctamente'
     this.mostrarToast = true;
-  }
+  } 
 
-}
+} 
