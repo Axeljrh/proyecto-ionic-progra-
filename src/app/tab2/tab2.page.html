@@ -19,6 +19,22 @@
   <ion-item>
     <ion-input type="date" label="Fecha limite" labelPlacement="stacked" [(ngModel)]="form.fechaLimite"></ion-input>
   </ion-item>
+
+<ion-item> 
+  <ion-select label="Estado" labelPlacement="stacked"[(ngModel)]="form.estado"> 
+  <ion-select-option value ="pedinete">Pendiente</ion-select-option>
+  <ion-select-option value ="en progreso">En progreso</ion-select-option>
+  <ion-select-option value ="listo">Listo</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-select label="prioridad" labelPlacement="stacked"[(ngModel)]="form.prioridad">
+    <ion-select-option value="baja">Baja</ion-select-option>
+    <ion-select-option value="media">Media</ion-select-option>
+    <ion-select-option value="alta">Alta</ion-select-option>
+  </ion-select>
+  </ion-item>
+
   <ion-item> 
     <ion-input type="Categoria" labelPlacement = "stacked" [(ngModel)]="form.categoria"
     placeholder="ejemplo: Estudio, Trabajo, Personal">
