@@ -1,17 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Mis tareas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content class="ion-padding">
+  @if(tasks.length > 0 ){
+    <ion-list>
+      @for (task of tasks; track task.id){
+        <ion-item>
+          <ion-label>
+            <h2>{{task.titulo}}</h2>
+            <p>{{task.descripcion}}</p>
+            <p><strong>Fecha limite:</strong>{{task.fechaLimite}}</p>
+            <p><strong>Categoria:</strong>{{task.categoria || 'Sin categoria'}}</p>
+            <ion-badge>{{task.estado}}</ion-badge>
+          </ion-label>
+          <ion-select
+          interface="popover"
+          [value]="task.estado"
+          (IonChange)="cambiarEstado(task.id, $any($event).detail.value)">
+          <ion-select-option value="pedinete">Pendiente</ion-select-option>
+          <ion-select-option value="en progreso">En progreso</ion-select-option>
+          <ion-select-option value="listo">Listo</ion-select-option>
+            
+          </ion-select>
+          <ion-buttons slot="end">
+            <ion-button color="danger"(click)="eliminar(task.id)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      }
+    </ion-list>
+  }@else {
+    <p class="ion-text-center">No hay tareas registradas</p>
+  }
 </ion-content>

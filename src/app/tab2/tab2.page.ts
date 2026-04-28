@@ -67,7 +67,7 @@ export class Tab2Page {
     private toastController: ToastController
   ) {}
   async guardar (): Promise<void>{
-    if (this.form.titulo.trim()|| !this.form.fechaLimite){
+    if (!this.form.titulo.trim()|| !this.form.fechaLimite){
       this.mensajeToast = 'El titulo y la fecha son obligatorias'
       this.mostrarToast = true ; 
       return;

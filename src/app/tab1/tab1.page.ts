@@ -41,7 +41,7 @@ import { IonHeader,
             ]
 })
 export class Tab1Page implements OnInit {
-  task: Task[] =[]
+  tasks: Task[] =[]
   constructor(private taskService: TaskService) {
     addIcons({trash,create,checkmarkDone})
   }
@@ -52,7 +52,7 @@ export class Tab1Page implements OnInit {
     this.cargarTareas();
   }
   cargarTareas(): void{
-    this.task = this.taskService.getTasks();
+    this.tasks = this.taskService.getTasks();
   }
   async eliminar(id: string): Promise<void>{
     await this.taskService.deleteTask(id);
@@ -63,3 +63,4 @@ export class Tab1Page implements OnInit {
     this.cargarTareas();
   }
 }
+  
